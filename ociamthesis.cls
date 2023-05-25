@@ -3,8 +3,10 @@
 % Originally by Keith A. Gillow (gillow@maths.ox.ac.uk), 1997
 % Modified by Sam Evans (sam@samuelevansresearch.org), 2007
 % Modified by John McManigle (john@oxfordechoes.com), 2015
+% Modified by John Plows (komninos-john.plows@physics.ox.ac.uk), 2023
 %
 % This version Copyright (c) 2015-2017 John McManigle
+% Additions to this version Copyright (c) 2023 John Plows
 %
 % Broad permissions are granted to use, modify, and distribute this software
 % as specified in the MIT License included in this distribution's LICENSE file.
@@ -72,7 +74,9 @@
 % CRESTS
 %
 
-\def\crest{{\includegraphics{figures/beltcrest.pdf}}}
+% KJP - change crest to new official Oxford logo
+\def\crest{{\includegraphics[width=0.3\textwidth]{figures/ox_brand_cmyk_pos.pdf}}}
+%\def\crest{{\includegraphics{figures/beltcrest.pdf}}}
 
 
 %
@@ -95,21 +99,23 @@
 \renewcommand{\chaptermark}[1]{\markboth{\thechapter. #1}{\thechapter. #1}}
 \renewcommand{\sectionmark}[1]{\markright{\thesection. #1}} 
 \renewcommand{\headrulewidth}{0pt}
-\fancyhead[LO]{\emph{\leftmark}} 
-\fancyhead[RE]{\emph{\rightmark}} 
-\fancyhead[RO,LE]{\emph{\thepage}}
+% KJP remove \emph from fancyhdr
+\fancyhead[LO]{\leftmark} 
+\fancyhead[RE]{\rightmark} 
+\fancyhead[RO,LE]{\thepage}
 
-\fancypagestyle{plain}{\fancyhf{}\fancyfoot[C]{\emph{\thepage}}}
+\fancypagestyle{plain}{\fancyhf{}\fancyfoot[C]{\thepage}}
 
 % JEM fix header on cleared pages for openright
+% KJP no \emph in page heads
 \def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
    \hbox{}
    \fancyhead[RE,LO]{}
    \newpage
    \if@twocolumn\hbox{}\newpage
    \fi
-   \fancyhead[LO]{\emph{\leftmark}} 
-   \fancyhead[RE]{\emph{\rightmark}} 
+   \fancyhead[LO]{\leftmark} 
+   \fancyhead[RE]{\rightmark}
    \fi\fi}
 
 
