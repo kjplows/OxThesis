@@ -378,8 +378,10 @@
    {\end{list}\mtcaddchapter}
 
 
-\usepackage[grey,utopia]{quotchap} 
-	% To put nice quotes at the beginning of the chapters
+\usepackage[grey,times]{quotchap}
+%\usepackage[grey,utopia]{quotchap}
+% To put nice quotes at the beginning of the chapters
+% KJP - this controls fancy chapter headings
 
 \usepackage[nottoc]{tocbibind}
 	% Used for inserting the Bibliography, List of Figures, indices, etc into the table of contents.
@@ -387,11 +389,15 @@
 % JEM: Allow flexible spacing after figures, to reduce other stretching
 \setlength{\textfloatsep}{20pt plus15pt minus4pt}
 
+% KJP - Redefine `chaptergrey` to include some blue colour
+\colorlet{chaptergrey}{blue!40!gray}
+
 % JEM: Fix paragraph spacing within quotes for multi-par quotes
-\renewenvironment{savequote}[1][10cm]{%
+% KJP - Modify section here
+\renewenvironment{savequote}[1][8cm]{%
 \begin{lrbox}{\@quotebox}
 \begin{minipage}[t]{#1}\footnotesize\slshape%
-\setlength{\parskip}{6pt}}{%
+\setlength{\parskip}{0pt}}{%
 \unskip\end{minipage}\end{lrbox}
 \global\setbox\@quotebox\copy\@quotebox
 \global\let\@printcites\@iprintcites
@@ -445,6 +451,7 @@
 
 
 % JEM: adjust start-of-chapter spacing
+% KJP - Chapter heading deactivated
 \renewcommand{\chapterheadstartvskip}{\vspace*{40pt}}
 \renewcommand{\chapterheadendvskip}{\vspace{30pt}}
 
