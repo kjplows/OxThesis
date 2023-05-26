@@ -378,7 +378,7 @@
    {\end{list}\mtcaddchapter}
 
 
-\usepackage[grey,times]{quotchap}
+\usepackage[grey,bookman]{quotchap}
 %\usepackage[grey,utopia]{quotchap}
 % To put nice quotes at the beginning of the chapters
 % KJP - this controls fancy chapter headings
@@ -395,15 +395,16 @@
 % JEM: Fix paragraph spacing within quotes for multi-par quotes
 % KJP - Modify section here
 \renewenvironment{savequote}[1][8cm]{%
-\begin{lrbox}{\@quotebox}
-\begin{minipage}[t]{#1}\footnotesize\slshape%
-\setlength{\parskip}{0pt}}{%
-\unskip\end{minipage}\end{lrbox}
-\global\setbox\@quotebox\copy\@quotebox
-\global\let\@printcites\@iprintcites
-\ignorespacesafterend}
-\renewcommand{\qauthor}[1]{\par
-{\raggedleft\upshape #1\qquad\hbox{}\par}\bigskip}
+  \begin{lrbox}{\@quotebox}
+    \begin{minipage}[t]{#1}\footnotesize\slshape%
+      \setlength{\parskip}{0pt}}{%
+  \unskip\end{minipage}\end{lrbox}
+  \global\setbox\@quotebox\copy\@quotebox
+  \global\let\@printcites\@iprintcites
+  \ignorespacesafterend}
+% KJP - no bigskip please!
+%\renewcommand{\qauthor}[1]{\par
+%  {\raggedleft\upshape #1\qquad\hbox{}\par}\bigskip}
 
 % JEM: All of this is so that headers in these sections aren't uppercase
 \let\@ldtoc\tableofcontents
@@ -453,7 +454,7 @@
 % JEM: adjust start-of-chapter spacing
 % KJP - Chapter heading deactivated
 \renewcommand{\chapterheadstartvskip}{\vspace*{40pt}}
-\renewcommand{\chapterheadendvskip}{\vspace{30pt}}
+\renewcommand{\chapterheadendvskip}{\vspace{10pt}}
 
 
 % JEM: combine all of the commands you run before appendices start
