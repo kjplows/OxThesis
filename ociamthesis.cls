@@ -104,7 +104,10 @@
 \fancyhead[RE]{\rightmark} 
 \fancyhead[RO,LE]{\thepage}
 
-\fancypagestyle{plain}{\fancyhf{}\fancyfoot[C]{\thepage}}
+\fancypagestyle{plain}{%
+  \renewcommand{\headrulewidth}{0pt}%
+  \fancyhf{}\fancyfoot[C]{\thepage}%
+}
 
 % JEM fix header on cleared pages for openright
 % KJP no \emph in page heads
@@ -166,13 +169,26 @@
 \newcolumntype{d}[3]{D{.}{\cdot}{#1} }
 
 \usepackage{appendix} 
-	% For helping format appendicies
+% For helping format appendicies
 \usepackage{notoccite} 
-	% To format the bibliography	
+% To format the bibliography
 
+% KJP - Custom colours I like.
+\definecolor{bluegreen}{rgb}{0.0, 0.5, 0.5}
+\definecolor{navyblue}{rgb}{0.246, 0.246, 0.844}
+\definecolor{grass}{rgb}{0.207, 0.469, 0.004}
+\definecolor{ghostblue}{rgb}{0.298, 0.298, 0.702}
 
-\usepackage[colorlinks=false,pdfpagelabels]{hyperref} 
-	% for linking between references, figures, TOC, etc in the pdf document
+% KJP - Remove ugly boxes around hyperlinks.
+\usepackage{hyperref}
+\hypersetup{
+  pdfpagelabels,
+  colorlinks,
+  urlcolor=navyblue,
+  citecolor=grass,
+  linkcolor=bluegreen
+}
+% for linking between references, figures, TOC, etc in the pdf document
 
 \usepackage[nohints,tight]{minitoc} 
 	\setcounter{minitocdepth}{2} 
@@ -390,7 +406,7 @@
 \setlength{\textfloatsep}{20pt plus15pt minus4pt}
 
 % KJP - Redefine `chaptergrey` to include some blue colour
-\colorlet{chaptergrey}{blue!40!gray}
+\colorlet{chaptergrey}{ghostblue}
 
 % JEM: Fix paragraph spacing within quotes for multi-par quotes
 % KJP - Modify section here
