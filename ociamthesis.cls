@@ -98,7 +98,7 @@
 \pagestyle{fancy}
 \renewcommand{\chaptermark}[1]{\markboth{\thechapter. #1}{\thechapter. #1}}
 \renewcommand{\sectionmark}[1]{\markright{\thesection. #1}} 
-\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\headrulewidth}{0.5pt}
 % KJP remove \emph from fancyhdr
 \fancyhead[LO]{\leftmark} 
 \fancyhead[RE]{\rightmark} 
